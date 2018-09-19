@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
+    "export": "next export",
     "start": "next start -p 8000",
     "start1": "next start",
     "start2": "next start -p $PORT",
     "start3": "NODE_ENV=production node server.js",
+    "bundle-report": "webpack-bundle-analyzer stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -22,5 +24,9 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-markdown": "^3.6.0"
+  },
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.0"
   }
 }
