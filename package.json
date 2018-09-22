@@ -3,18 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
+  "homepage": "https://oryam.github.io/hello-next/",
   "scripts": {
     "clean:build:cache": "rm -rf node_modules/.cache",
     "clean:build": "rm -rf node_modules dist out",
     "dev": "rm -rf node_modules/.cache && node server.js",
-    "build": "next build",
+    "build": "npm run clean:build:cache && next build",
     "export": "next export",
-    "start": "next start -p 8000",
-    "start1": "next start",
+    "start": "next start",
+    "start1": "next start -p 8000",
     "start2": "next start -p $PORT",
     "start3": "NODE_ENV=production node server.js",
+    "start:out": "http-server out",
     "bundle-report": "webpack-bundle-analyzer stats.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pages:prepare": "npm run build",
+    "pages:deploy": "gh-pages -d out"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +38,8 @@
     "react-transition-group": "^2.4.0"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.0",
+    "path": "^0.12.7",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.0"
   }

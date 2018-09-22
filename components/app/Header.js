@@ -23,7 +23,7 @@ const Header = props => {
       <Link href="/">
         <a style={linkStyle}>Home</a>
       </Link>
-      <Link href="/views/LoginPage">
+      <Link as="/login" href="/views/LoginPage">
         <a style={linkStyle}>Login</a>
       </Link>
       <Link href="/posts">

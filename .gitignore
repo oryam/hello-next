@@ -3,6 +3,5 @@
 /out
 
 # backup files
-*.1.js
-*.2.js
-*.1.json
+*.[0-9]*.js
+*.[0-9]*.json
