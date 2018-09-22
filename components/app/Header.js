@@ -22,21 +22,19 @@ const Header = props => {
     <div>
       <Link href="/">
         <a style={linkStyle}>Home</a>
-        {/* <Button variant="outlined" className={classes.button}>
-          Home
-        </Button> */}
+      </Link>
+      <Link href="/views/LoginPage">
+        <a style={linkStyle}>Login</a>
       </Link>
       <Link href="/posts">
-        {/* <a style={linkStyle}>Posts</a> */}
         <Button variant="outlined" color="primary" className={classes.button}>
           Posts
         </Button>
       </Link>
       <Link href="/about">
-        <a style={linkStyle}>About</a>
-        {/* <Button variant="outlined" color="secondary" className={classes.button}>
+        <Button variant="outlined" color="secondary" className={classes.button}>
           About
-        </Button> */}
+        </Button>
       </Link>
     </div>
   );

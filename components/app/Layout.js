@@ -11,9 +11,11 @@ const Layout = props => (
   <div style={layoutStyle}>
     <Header />
     {props.children}
-    {/* <style jsx global>
-      {css}
-    </style> */}
+    <style jsx global>
+      {`
+        @import 'https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:300,400,500,700';
+      `}
+    </style>
   </div>
 );
 

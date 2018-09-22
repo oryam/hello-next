@@ -1,4 +1,5 @@
-module.exports = {
+const withImages = require('next-images');
+module.exports = withImages({
   exportPathMap: function() {
     return {
       '/': { page: '/' },
@@ -7,4 +8,4 @@ module.exports = {
       '/p/504': { page: '/post', query: { id: 504 } }
     };
   }
-};
+});

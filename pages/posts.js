@@ -1,6 +1,6 @@
-import Layout from '../components/Layout.js';
 import fetch from 'isomorphic-unfetch';
-import PostLink from '../components/PostLink.js';
+import Layout from '../components/app/Layout.js';
+import PostLink from '../components/app/PostLink.js';
 
 const Posts = props => (
   <Layout>
