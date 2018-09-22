@@ -1,60 +1,57 @@
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import DeleteIcon from '@material-ui/icons/Delete';
+import SaveIcon from '@material-ui/icons/Save';
 import Layout from '../components/Layout.js';
-import Link from 'next/link';
-import fetch from 'isomorphic-unfetch';
+import MenuAppBar from '../components/AppBar';
+import Badge from '../components/Badge/Badge';
 
-const PostLink = ({ show }) => (
-  <li>
-    <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
-      <a>{show.name}</a>
-    </Link>
-    <style jsx>{`
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit
+  },
+  iconSmall: {
+    fontSize: 20
+  }
+});
 
-      a {
-        text-decoration: none;
-        color: blue;
-        font-family: 'Arial';
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
-  </li>
-);
-
-const Index = props => (
-  <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(({ show }) => (
-        <PostLink key={show.id} show={show} />
-      ))}
-    </ul>
-    <style jsx>{`
-      h1 {
-        font-family: 'Arial';
-      }
-
-      ul {
-        padding: 0;
-      }
-    `}</style>
-  </Layout>
-);
-
-Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
-
-  console.log(`Show data fetched. Count: ${data.length}`);
-
-  return {
-    shows: data
-  };
+const Index = props => {
+  const { classes } = props;
+  return (
+    <Layout>
+      <MenuAppBar />
+      <Button variant="contained" color="primary">
+        Click me
+      </Button>
+      <Button variant="contained" color="secondary" className={classes.button}>
+        Delete
+        <DeleteIcon className={classes.rightIcon} />
+      </Button>
+      <Button variant="contained" color="primary" className={classes.button}>
+        Send
+        <Icon className={classes.rightIcon}>send</Icon>
+      </Button>
+      <Button variant="contained" size="small" className={classes.button}>
+        <SaveIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
+        Save
+      </Button>
+      <Badge color="success">success</Badge>
+      <h1>Hello</h1>
+      <style jsx global>
+        {`
+          @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+        `}
+      </style>
+    </Layout>
+  );
 };
 
-export default Index;
+export default withStyles(styles)(Index);

@@ -1,4 +1,5 @@
 import Header from './Header';
+// import css from '../static/global.css';
 
 const layoutStyle = {
   margin: 20,
@@ -10,6 +11,9 @@ const Layout = props => (
   <div style={layoutStyle}>
     <Header />
     {props.children}
+    {/* <style jsx global>
+      {css}
+    </style> */}
   </div>
 );
 
