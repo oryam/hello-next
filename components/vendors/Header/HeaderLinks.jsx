@@ -40,6 +40,9 @@ function HeaderLinks({ ...props }) {
             <Link href={`${publicRuntimeConfig.appContext}login`}>
               <a className={classes.dropdownLink}>Login</a>
             </Link>,
+            <Link href={`${publicRuntimeConfig.appContext}components`}>
+              <a className={classes.dropdownLink}>Components</a>
+            </Link>,
             <Link href={`${publicRuntimeConfig.appContext}posts`}>
               <a className={classes.dropdownLink}>Posts</a>
             </Link>,

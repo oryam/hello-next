@@ -29,6 +29,9 @@ const Header = props => {
       <Link href={`${publicRuntimeConfig.appContext}login`}>
         <a style={linkStyle}>Login</a>
       </Link>
+      <Link href={`${publicRuntimeConfig.appContext}components`}>
+        <a style={linkStyle}>Components</a>
+      </Link>
       <Link href={`${publicRuntimeConfig.appContext}posts`}>
         <Button variant="outlined" color="primary" className={classes.button}>
           Posts

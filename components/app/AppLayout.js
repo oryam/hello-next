@@ -1,6 +1,6 @@
 import AppHeader from './AppHeader';
 
-// import css from '../../static/scss/material-kit-react.css';
+// import css from '../../../static/scss/material-kit-react.css';
 
 const layoutStyle = {
   margin: 0,
