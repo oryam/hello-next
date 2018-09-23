@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import Link from 'next/link';
+import getConfig from 'next/config';
 
 // react components for routing our app without refresh
 // import { Link } from "react-router-dom";
@@ -10,15 +11,14 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
-
-// @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
-
+import Icon from '@material-ui/core/Icon';
 // core components
 import CustomDropdown from "../CustomDropdown/CustomDropdown.jsx";
 import Button from "../CustomButtons/Button.jsx";
 
 import headerLinksStyle from "../../../static/jss/material-kit-react/components/headerLinksStyle.jsx";
+
+const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
 
 function HeaderLinks({ ...props }) {
   const { classes } = props;
@@ -32,10 +32,16 @@ function HeaderLinks({ ...props }) {
             className: classes.navLink,
             color: "transparent"
           }}
-          buttonIcon={Apps}
+          buttonIcon="apps"
           dropdownList={[
-            <Link href="/">
-              <a className={classes.dropdownLink}>All components</a>
+            <Link href={`${publicRuntimeConfig.appContext}`}>
+              <a className={classes.dropdownLink}>Home</a>
+            </Link>,
+            <Link href={`${publicRuntimeConfig.appContext}login`}>
+              <a className={classes.dropdownLink}>Login</a>
+            </Link>,
+            <Link href={`${publicRuntimeConfig.appContext}posts`}>
+              <a className={classes.dropdownLink}>Posts</a>
             </Link>,
             <a
               href="https://creativetimofficial.github.io/material-kit-react/#/documentation"
@@ -54,7 +60,9 @@ function HeaderLinks({ ...props }) {
           target="_blank"
           className={classes.navLink}
         >
-          <CloudDownload className={classes.icons} /> Download
+          {/* <CloudDownload className={classes.icons} /> */}
+          <Icon className={classes.icons}>cloud_download</Icon>
+          Download
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

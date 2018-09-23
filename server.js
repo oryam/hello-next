@@ -1,5 +1,5 @@
 const next = require('next');
-const micro = require('micro');
+const express = require('express');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -8,7 +8,9 @@ const handle = app.getRequestHandler();
 app
   .prepare()
   .then(() => {
-    const server = micro((req, res) => {
+    const server = express();
+
+    server.all('*', (req, res) => {
       // Add assetPrefix support based on the hostname
       if (req.headers.host === 'oryam.github.io') {
         app.setAssetPrefix('https://oryam.github.io/hello-next');
@@ -16,7 +18,7 @@ app
         app.setAssetPrefix('');
       }
 
-      handle(req, res);
+      return handle(req, res);
     });
 
     server.get('/p/:id', (req, res) => {
@@ -25,9 +27,9 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.get('/login', (req, res) => {
-      app.render(req, res, '/views/LoginPage');
-    });
+    // server.get('/login', (req, res) => {
+    //   app.render(req, res, '/views/LoginPage');
+    // });
 
     server.get('*', (req, res) => {
       return handle(req, res);

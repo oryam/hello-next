@@ -1,15 +1,16 @@
-import Header from './Header';
-// import css from '../static/global.css';
+import AppHeader from './AppHeader';
+
+// import css from '../../static/scss/material-kit-react.css';
 
 const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
+  margin: 0,
+  padding: 0,
+  backgroundColor: '#ccc'
 };
 
 const Layout = props => (
   <div style={layoutStyle}>
-    <Header />
+    <AppHeader />
     {props.children}
     <style jsx global>
       {`

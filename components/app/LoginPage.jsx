@@ -5,29 +5,22 @@ import dynamic from 'next/dynamic';
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
 // core components
-// import Header from "../../components/vendors/Header/Header.jsx";
-// import HeaderLinks from "../../components/vendors/Header/HeaderLinks.jsx";
-const Header = dynamic(import("../../components/vendors/Header/Header.jsx"), { ssr: false });
-const HeaderLinks = dynamic(import("../../components/vendors/Header/HeaderLinks.jsx"), { ssr: false });
-import Footer from "../../components/vendors/Footer/Footer.jsx";
-import GridContainer from "../../components/vendors/Grid/GridContainer.jsx";
-import GridItem from "../../components/vendors/Grid/GridItem.jsx";
-import Button from "../../components/vendors/CustomButtons/Button.jsx";
-import Card from "../../components/vendors/Card/Card.jsx";
-import CardBody from "../../components/vendors/Card/CardBody.jsx";
-import CardHeader from "../../components/vendors/Card/CardHeader.jsx";
-import CardFooter from "../../components/vendors/Card/CardFooter.jsx";
-import CustomInput from "../../components/vendors/CustomInput/CustomInput.jsx";
+const Header = dynamic(import("../vendors/Header/Header"), { ssr: false });
+const HeaderLinks = dynamic(import("../vendors/Header/HeaderLinks"), { ssr: false });
+import Footer from "../vendors/Footer/Footer";
+import GridContainer from "../vendors/Grid/GridContainer";
+import GridItem from "../vendors/Grid/GridItem";
+import Button from "../vendors/CustomButtons/Button";
+import Card from "../vendors/Card/Card";
+import CardBody from "../vendors/Card/CardBody";
+import CardHeader from "../vendors/Card/CardHeader";
+import CardFooter from "../vendors/Card/CardFooter";
+import CustomInput from "../vendors/CustomInput/CustomInput";
 
-import loginPageStyle from "../../static/jss/material-kit-react/views/loginPage.jsx";
+import loginPageStyle from "../../static/jss/material-kit-react/views/loginPage";
 
 import image from "../../static/img/bg7.jpg";
-
-import Layout from '../../components/app/Layout.js';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -49,7 +42,7 @@ class LoginPage extends React.Component {
   render() {
     const { classes, ...rest } = this.props;
     return (
-      <Layout>
+      <div>
         <Header
           absolute
           color="transparent"
@@ -114,7 +107,8 @@ class LoginPage extends React.Component {
                           type: "text",
                           endAdornment: (
                             <InputAdornment position="end">
-                              <People className={classes.inputIconsColor} />
+                              {/* <People className={classes.inputIconsColor} /> */}
+                              <Icon className={classes.inputIconsColor}>people</Icon>
                             </InputAdornment>
                           )
                         }}
@@ -129,7 +123,8 @@ class LoginPage extends React.Component {
                           type: "email",
                           endAdornment: (
                             <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
+                              {/* <Email className={classes.inputIconsColor} /> */}
+                              <Icon className={classes.inputIconsColor}>email</Icon>
                             </InputAdornment>
                           )
                         }}
@@ -164,7 +159,7 @@ class LoginPage extends React.Component {
           </div>
           <Footer whiteFont />
         </div>
-      </Layout>
+      </div>
     );
   }
 }

@@ -1,7 +1,7 @@
-import Layout from '../components/app/Layout';
+import AppLayout from '../components/app/AppLayout';
 
 export default () => (
-  <Layout>
+  <AppLayout>
     <p>This is the about page</p>
-  </Layout>
+  </AppLayout>
 );

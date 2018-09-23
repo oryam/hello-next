@@ -5,7 +5,6 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
 
 // core components
 import cardHeaderStyle from "../../../static/jss/material-kit-react/components/cardHeaderStyle.jsx";

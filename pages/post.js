@@ -1,9 +1,9 @@
 import Markdown from 'react-markdown'
 import fetch from 'isomorphic-unfetch';
-import Layout from '../components/app/Layout.js';
+import AppLayout from '../components/app/AppLayout.js';
 
 const Post = props => (
-  <Layout>
+  <AppLayout>
     <h1>{props.show.name}</h1>
     <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
     <img src={props.show.image.medium} />
@@ -40,7 +40,7 @@ And here's the content.
        text-transform: uppercase;
      }
   `}</style>
-  </Layout>
+  </AppLayout>
 );
 
 Post.getInitialProps = async function(context) {

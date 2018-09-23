@@ -1,9 +1,9 @@
 import fetch from 'isomorphic-unfetch';
-import Layout from '../components/app/Layout.js';
+import AppLayout from '../components/app/AppLayout.js';
 import PostLink from '../components/app/PostLink.js';
 
 const Posts = props => (
-  <Layout>
+  <AppLayout>
     <h1>Batman TV Shows</h1>
     <ul>
       {props.shows.map(({ show }) => (
@@ -19,7 +19,7 @@ const Posts = props => (
         padding: 0;
       }
     `}</style>
-  </Layout>
+  </AppLayout>
 );
 
 Posts.getInitialProps = async function() {

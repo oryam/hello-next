@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import getConfig from 'next/config';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+
+const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
 
 const linkStyle = {
   marginRight: 15
@@ -20,18 +23,18 @@ const Header = props => {
   const { classes } = props;
   return (
     <div>
-      <Link href="/">
+      <Link href={`${publicRuntimeConfig.appContext}`}>
         <a style={linkStyle}>Home</a>
       </Link>
-      <Link as="/login" href="/views/LoginPage">
+      <Link href={`${publicRuntimeConfig.appContext}login`}>
         <a style={linkStyle}>Login</a>
       </Link>
-      <Link href="/posts">
+      <Link href={`${publicRuntimeConfig.appContext}posts`}>
         <Button variant="outlined" color="primary" className={classes.button}>
           Posts
         </Button>
       </Link>
-      <Link href="/about">
+      <Link href={`${publicRuntimeConfig.appContext}about`}>
         <Button variant="outlined" color="secondary" className={classes.button}>
           About
         </Button>

@@ -5,9 +5,7 @@ import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 import { List, ListItem, withStyles } from "@material-ui/core";
-
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+import Icon from '@material-ui/core/Icon';
 
 import footerStyle from "../../../static/jss/material-kit-react/components/footerStyle.jsx";
 
@@ -66,7 +64,9 @@ function Footer({ ...props }) {
         </div>
         <div className={classes.right}>
           &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
+          {/* <Favorite className={classes.icon} /> */}
+          <Icon className={classes.icon}>favorite</Icon>
+          by{" "}
           <a
             href="https://www.creative-tim.com"
             className={aClasses}
