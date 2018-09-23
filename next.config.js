@@ -1,5 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
+// const path = require('path');
+// const webpack = require('webpack');
 const withCSS = require('@zeit/next-css');
 const withSass = require('@zeit/next-sass');
 const withImages = require('next-images');
@@ -24,26 +24,26 @@ module.exports = withCSS(withSass(withImages({
           '/p/504': { page: '/post', query: { id: 504 } }
         };
       },
-      webpack: (config, { dev, isServer }) => {
-        // for (let plugin of config.plugins) {
-        //   console.log('plugin', plugin.constructor.name);
-        // }
-        if (!isServer) {
-          config.plugins.push(
-            new webpack.optimize.AggressiveSplittingPlugin({
-              // minSize: 30000,
-              maxSize: 50000
-            })
-            // new webpack.DefinePlugin({
-            //   'process.env.NODE_ENV': JSON.stringify('production')
-            // })
-          );
-        }
+      // webpack: (config, { dev, isServer }) => {
+      //   // for (let plugin of config.plugins) {
+      //   //   console.log('plugin', plugin.constructor.name);
+      //   // }
+      //   if (!isServer) {
+      //     config.plugins.push(
+      //       new webpack.optimize.AggressiveSplittingPlugin({
+      //         // minSize: 30000,
+      //         maxSize: 50000
+      //       })
+      //       // new webpack.DefinePlugin({
+      //       //   'process.env.NODE_ENV': JSON.stringify('production')
+      //       // })
+      //     );
+      //   }
 
-        config.recordsOutputPath = path.join(__dirname, "out", "records.json");
+      //   config.recordsOutputPath = path.join(__dirname, "out", "records.json");
 
-        return config;
-      }
+      //   return config;
+      // }
     })
   )
 );

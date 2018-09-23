@@ -12,11 +12,11 @@ const Layout = props => (
   <div style={layoutStyle}>
     <AppHeader />
     {props.children}
-    <style jsx global>
+    {/* <style jsx global>
       {`
         @import 'https://fonts.googleapis.com/icon?family=Material+Icons|Roboto:300,400,500,700';
       `}
-    </style>
+    </style> */}
   </div>
 );
 
