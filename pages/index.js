@@ -42,7 +42,9 @@ const Index = props => {
       </Button>
       <Button variant="contained" size="small" className={classes.button}>
         {/* <SaveIcon className={classNames(classes.leftIcon, classes.iconSmall)} /> */}
-        <Icon className={classNames(classes.leftIcon, classes.iconSmall)}>save</Icon>
+        <Icon className={classNames(classes.leftIcon, classes.iconSmall)}>
+          save
+        </Icon>
         Save
       </Button>
       <Badge color="success">success</Badge>

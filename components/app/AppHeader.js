@@ -42,6 +42,11 @@ const Header = props => {
           About
         </Button>
       </Link>
+      <Link href={`${publicRuntimeConfig.appContext}events`}>
+        <Button className={classes.button}>
+          Events
+        </Button>
+      </Link>
     </div>
   );
 };
